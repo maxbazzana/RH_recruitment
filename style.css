@@ -1,0 +1,432 @@
+/* --- VARIABLES DE COLOR Y FUENTES --- */
+:root {
+    --primary-color: #8B0000; /* Borgoña oscuro / Rojo vino */
+    --secondary-color: #D4AF37; /* Dorado */
+    --accent-color: #FFC0CB; /* Rosa pálido / Melocotón para acentos suaves */
+    --text-color-light: #FDF5E6; /* Blanco hueso / Crema */
+    --text-color-dark: #333333;
+    --bg-dark: #1a1a1a; /* Fondo oscuro para contraste */
+    --bg-light: #FFF8F0; /* Un blanco muy cálido, casi crema */
+    --bg-alt: #f4e9e0; /* Alternativo para secciones, un poco más oscuro que light */
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Raleway', sans-serif;
+}
+
+/* --- RESET BÁSICO Y ESTILOS GLOBALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2rem;}
+h3 { font-size: 1.5rem; }
+p { margin-bottom: 1rem; font-size: 1rem; }
+a { color: var(--secondary-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.alt-bg {
+    background-color: var(--bg-alt);
+}
+
+/* --- BOTONES CTA --- */
+.cta-button, .cta-button-final {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-color-light) !important; /* Forzar color sobre 'a' general */
+    padding: 15px 30px;
+    border-radius: 50px; /* Botones más redondeados/píldora */
+    text-decoration: none !important; /* Forzar sin subrayado */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.cta-button:hover, .cta-button-final:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+}
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color-light) !important;
+}
+
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('images/rooftop.png') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-color-light);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color-light); /* Título blanco sobre fondo oscuro */
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- IDENTIFICAS SECTION --- */
+.identificas {
+    text-align: center;
+}
+.identificas p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* --- SOLUCION SECTION --- */
+.solucion {
+    text-align: center;
+}
+.solucion-img {
+    max-width: 100%;
+    width: 600px; /* Ajusta según necesites */
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- PASOS SECTION --- */
+.pasos {
+    text-align: center;
+}
+
+.pasos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.pasos .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pasos .cta-button {
+    display: inline-block;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.paso-card {
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+.paso-card:hover {
+    transform: translateY(-5px);
+}
+.paso-card i {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+/* --- BENEFICIOS SECTION --- */
+.beneficios-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado para mejor distribución */
+    gap: 20px;
+    padding-left: 0;
+}
+.beneficios-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px; /* Más padding */
+    background-color: var(--bg-light); /* Fondo más consistente */
+    border-left: 4px solid var(--secondary-color); /* Borde de acento */
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.beneficios-list i {
+    color: var(--primary-color); /* Iconos con color primario para destacar */
+    margin-right: 15px;
+    font-size: 1.5em;
+    min-width: 30px; /* Para alinear texto si los iconos varían de ancho */
+    text-align: center;
+}
+
+/* --- TESTIMONIOS SECTION --- */
+.testimonios {
+    text-align: center;
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.testimonios .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonios .cta-button {
+    display: inline-block;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.testimonio-card {
+    background-color: var(--bg-alt);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.testimonio-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid var(--secondary-color);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    filter: contrast(1.15) brightness(1.1) saturate(1.1);
+    -webkit-filter: contrast(1.15) brightness(1.1) saturate(1.1);
+    will-change: transform;
+    transition: transform 0.3s ease;
+}
+
+.testimonio-card img:hover {
+    transform: scale(1.05);
+}
+
+.testimonio-card p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.testimonio-card h4 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* --- FAQ SECTION --- */
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd; /* Borde más suave */
+    border-radius: 5px;
+    overflow: hidden; /* Para que el borde redondeado funcione bien */
+}
+.faq-question {
+    background-color: #f9f9f9; /* Un poco más claro que el alt-bg */
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 18px 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 500; /* Un poco más de peso */
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+.faq-question::after {
+    content: '\f078'; /* Font Awesome down arrow */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+.faq-question.active::after {
+    transform: translateY(-50%) rotate(180deg); /* Up arrow */
+}
+
+.faq-question:hover {
+    background-color: #f1f1f1;
+}
+.faq-answer {
+    padding: 0 20px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+.faq-answer p {
+    padding: 20px 0; /* Añade padding interno al párrafo para espaciado */
+    margin-bottom: 0; /* Quita el margen inferior del párrafo dentro del answer */
+}
+
+
+/* --- FINAL CTA SECTION --- */
+.final-cta {
+    background: var(--primary-color); /* Fondo distintivo para la última llamada */
+    color: var(--text-color-light);
+    text-align: center;
+}
+.final-cta h2 {
+    color: var(--text-color-light);
+}
+.final-cta p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-button-final {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark) !important;
+}
+.cta-button-final:hover {
+    background-color: var(--text-color-light);
+    color: var(--primary-color) !important;
+}
+.confidencialidad {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+footer p {
+    margin-bottom: 0.5rem;
+}
+footer a {
+    color: var(--secondary-color);
+}
+footer a:hover {
+    color: var(--text-color-light);
+}
+
+/* --- ESTILOS PARA BOTÓN FLOTANTE DE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: #FFF !important; /* Forzar blanco para el icono */
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px; /* Tamaño del icono */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important; /* Quitar subrayado */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #1DA851; /* Un tono ligeramente más oscuro al pasar el ratón */
+}
+
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { font-size: 1.1rem; }
+    h2 { font-size: 1.8rem; }
+
+    .pasos-grid, .beneficios-list, .testimonios-grid {
+        grid-template-columns: 1fr; /* Stack elements on smaller screens */
+    }
+
+    .section-padding {
+        padding: 40px 0;
+    }
+    .cta-button, .cta-button-final {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+
+    .testimonios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1rem; }
+    .container { width: 95%; }
+}
